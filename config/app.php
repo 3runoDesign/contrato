@@ -180,7 +180,7 @@ return [
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
-
+        geekcom\ValidatorDocs\ValidatorProvider::class,
     ],
 
     /*

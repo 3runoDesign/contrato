@@ -21,3 +21,17 @@ $factory->define(\CONTR\Models\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\CONTR\Models\Customer::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'building_number' => $faker->buildingNumber,
+        'district' => 'oioi',
+        'locality' => $faker->city,
+        'uf' => $faker->stateAbbr,
+        'cpf' => $faker->cpf(),
+        'rg' => $faker->rg(false),
+        'phone' => $faker->tollFreePhoneNumber(),
+    ];
+});
