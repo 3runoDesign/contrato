@@ -171,11 +171,15 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        CONTR\Providers\AppServiceProvider::class,
+        CONTR\Providers\AuthServiceProvider::class,
+        // CONTR\Providers\BroadcastServiceProvider::class,
+        CONTR\Providers\EventServiceProvider::class,
+        CONTR\Providers\RouteServiceProvider::class,
+
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Bootstrapper\BootstrapperL5ServiceProvider::class,
 
     ],
 
@@ -225,6 +229,13 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+
+        'Navbar' => Bootstrapper\Facades\Navbar::class,
+        'Navigation' => Bootstrapper\Facades\Navigation::class,
+        'Button' => Bootstrapper\Facades\Button::class,
+        'Icon' => Bootstrapper\Facades\Icon::class,
+
 
     ],
 
