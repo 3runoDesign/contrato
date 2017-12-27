@@ -1,5 +1,6 @@
 <?php
 
+use CONTR\Models\Agreement;
 use CONTR\Models\Customer;
 use CONTR\Models\User;
 use Faker\Generator as Faker;
@@ -35,5 +36,14 @@ $factory->define(Customer::class, function (Faker $faker) {
         'cpf' => $faker->cpf(false),
         'rg' => $faker->rg(false),
         'phone' => $faker->phoneNumber,
+    ];
+});
+
+$factory->define(Agreement::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence,
+        'enrolment' => str_random(40),
+        'date_agreement' => $faker->dateTime('now', null),
+        'date_event' => $faker->dateTime('now', null),
     ];
 });

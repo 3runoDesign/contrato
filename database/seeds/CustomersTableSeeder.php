@@ -1,5 +1,6 @@
 <?php
 
+use CONTR\Models\Agreement;
 use CONTR\Models\Customer;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,9 @@ class CustomersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Customer::class, 10)->create();
+        $agreements = Agreement::all();
+
+        factory(Customer::class, 10)
+            ->create();
     }
 }
