@@ -1,5 +1,7 @@
 <?php
 
+use CONTR\Models\Customer;
+use CONTR\Models\User;
 use Faker\Generator as Faker;
 
 /*
@@ -13,7 +15,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\CONTR\Models\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
@@ -22,16 +24,16 @@ $factory->define(\CONTR\Models\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\CONTR\Models\Customer::class, function (Faker $faker) {
+$factory->define(Customer::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'address' => $faker->address,
+        'address' => $faker->streetName,
         'building_number' => $faker->buildingNumber,
-        'district' => 'oioi',
+        'district' => $faker->secondaryAddress,
         'locality' => $faker->city,
         'uf' => $faker->stateAbbr,
-        'cpf' => $faker->cpf(),
+        'cpf' => $faker->cpf(false),
         'rg' => $faker->rg(false),
-        'phone' => $faker->tollFreePhoneNumber(),
+        'phone' => $faker->phoneNumber,
     ];
 });

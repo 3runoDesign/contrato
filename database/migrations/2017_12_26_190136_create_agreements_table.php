@@ -15,6 +15,10 @@ class CreateAgreementsTable extends Migration
     {
         Schema::create('agreements', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 255);
+            $table->string('enrolment')->unique();
+            $table->date('date_agreement');
+            $table->date('date_event');
             $table->timestamps();
         });
     }
