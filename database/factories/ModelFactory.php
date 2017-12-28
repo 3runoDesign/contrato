@@ -40,10 +40,13 @@ $factory->define(Customer::class, function (Faker $faker) {
 });
 
 $factory->define(Agreement::class, function (Faker $faker) {
+    $customer_ids = Customer::all()->random()->id;
+
     return [
         'title' => $faker->sentence,
         'enrolment' => str_random(40),
         'date_agreement' => $faker->dateTime('now', null),
         'date_event' => $faker->dateTime('now', null),
+        'customer_id' => $customer_ids
     ];
 });
