@@ -24,6 +24,8 @@ Route::prefix('admin')->group(function () {
         'middleware' => [ 'auth' ]
     ], function () {
 
+        Route::resource('customer', 'CustomerController');
+
     });
 });
 

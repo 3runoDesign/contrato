@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.27 on 2017-12-26.
+ * Generated for Laravel 5.5.27 on 2017-12-29.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13080,6 +13080,356 @@ namespace Bootstrapper\Facades {
         }
          
     }
+
+    class Table {
+        
+        /**
+         * Renders the table
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function render()
+        {
+            return \Bootstrapper\Table::render();
+        }
+        
+        /**
+         * Sets the table to be striped
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function striped()
+        {
+            return \Bootstrapper\Table::striped();
+        }
+        
+        /**
+         * Sets the table to be bordered
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function bordered()
+        {
+            return \Bootstrapper\Table::bordered();
+        }
+        
+        /**
+         * Sets the table to have an active hover state
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function hover()
+        {
+            return \Bootstrapper\Table::hover();
+        }
+        
+        /**
+         * Sets the table to be condensed
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function condensed()
+        {
+            return \Bootstrapper\Table::condensed();
+        }
+        
+        /**
+         * Sets the contents of the table
+         *
+         * @param array|\Bootstrapper\Traversable $contents The contents of the table. We expect
+         *                                    either an array of arrays or an
+         *                                    array of eloquent models
+         * @return $this 
+         * @static 
+         */ 
+        public static function withContents($contents)
+        {
+            return \Bootstrapper\Table::withContents($contents);
+        }
+        
+        /**
+         * Creates a list of columns to ignore
+         *
+         * @param array $ignores The ignored columns
+         * @return $this 
+         * @static 
+         */ 
+        public static function ignore($ignores)
+        {
+            return \Bootstrapper\Table::ignore($ignores);
+        }
+        
+        /**
+         * Adds a callback
+         *
+         * @param string $index The column name for the callback
+         * @param callable $function The callback function,
+         *                           which should be of the form
+         *                           function($column, $row).
+         * @return $this 
+         * @static 
+         */ 
+        public static function callback($index, $function)
+        {
+            return \Bootstrapper\Table::callback($index, $function);
+        }
+        
+        /**
+         * Sets which columns we can return
+         *
+         * @param array $only
+         * @return $this 
+         * @static 
+         */ 
+        public static function only($only)
+        {
+            return \Bootstrapper\Table::only($only);
+        }
+        
+        /**
+         * Sets content to be rendered in to the table footer
+         *
+         * @param string $footer
+         * @return $this 
+         * @static 
+         */ 
+        public static function withFooter($footer)
+        {
+            return \Bootstrapper\Table::withFooter($footer);
+        }
+        
+        /**
+         * Uses given class(es) on body TDs.
+         *
+         * @param mixed $classes The class(es) to apply.
+         * @return $this 
+         * @static 
+         */ 
+        public static function withBodyCellClass($classes)
+        {
+            return \Bootstrapper\Table::withBodyCellClass($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function withClassOnCellsInColumn($columns, $classes)
+        {
+            return \Bootstrapper\Table::withClassOnCellsInColumn($columns, $classes);
+        }
+        
+        /**
+         * Set the attributes of the object
+         *
+         * @param array $attributes The attributes to use
+         * @return $this 
+         * @static 
+         */ 
+        public static function withAttributes($attributes)
+        {
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Table::withAttributes($attributes);
+        }
+        
+        /**
+         * Adds the given classes to attributes
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function addClass($classes)
+        {
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Table::addClass($classes);
+        }
+         
+    }
+
+    class ButtonGroup {
+        
+        /**
+         * Renders the button group
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function render()
+        {
+            return \Bootstrapper\ButtonGroup::render();
+        }
+        
+        /**
+         * Sets the size of the button group
+         *
+         * @param $size
+         * @static 
+         */ 
+        public static function setSize($size)
+        {
+            return \Bootstrapper\ButtonGroup::setSize($size);
+        }
+        
+        /**
+         * Sets the button group to be large
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function large()
+        {
+            return \Bootstrapper\ButtonGroup::large();
+        }
+        
+        /**
+         * Sets the button group to be small
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function small()
+        {
+            return \Bootstrapper\ButtonGroup::small();
+        }
+        
+        /**
+         * Sets the button group to be extra small
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function extraSmall()
+        {
+            return \Bootstrapper\ButtonGroup::extraSmall();
+        }
+        
+        /**
+         * Sets the button group to be radio
+         *
+         * @param array $contents
+         * @return $this 
+         * @static 
+         */ 
+        public static function radio($contents)
+        {
+            return \Bootstrapper\ButtonGroup::radio($contents);
+        }
+        
+        /**
+         * Sets the button group to be a checkbox
+         *
+         * @param array $contents
+         * @return $this 
+         * @static 
+         */ 
+        public static function checkbox($contents)
+        {
+            return \Bootstrapper\ButtonGroup::checkbox($contents);
+        }
+        
+        /**
+         * Sets the contents of the button group
+         *
+         * @param array $contents
+         * @return $this 
+         * @static 
+         */ 
+        public static function withContents($contents)
+        {
+            return \Bootstrapper\ButtonGroup::withContents($contents);
+        }
+        
+        /**
+         * Sets the button group to be vertical
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function vertical()
+        {
+            return \Bootstrapper\ButtonGroup::vertical();
+        }
+        
+        /**
+         * Sets the type of the button group
+         *
+         * @param $type
+         * @return $this 
+         * @static 
+         */ 
+        public static function asType($type)
+        {
+            return \Bootstrapper\ButtonGroup::asType($type);
+        }
+        
+        /**
+         * Renders the contents of the button group
+         *
+         * @return string 
+         * @throws ButtonGroupException if a string should be activated
+         * @static 
+         */ 
+        public static function renderContents()
+        {
+            return \Bootstrapper\ButtonGroup::renderContents();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function links($contents = array())
+        {
+            return \Bootstrapper\ButtonGroup::links($contents);
+        }
+        
+        /**
+         * Sets a link to be activated
+         *
+         * @param $toActivate
+         * @return $this 
+         * @static 
+         */ 
+        public static function activate($toActivate)
+        {
+            return \Bootstrapper\ButtonGroup::activate($toActivate);
+        }
+        
+        /**
+         * Set the attributes of the object
+         *
+         * @param array $attributes The attributes to use
+         * @return $this 
+         * @static 
+         */ 
+        public static function withAttributes($attributes)
+        {
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\ButtonGroup::withAttributes($attributes);
+        }
+        
+        /**
+         * Adds the given classes to attributes
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */ 
+        public static function addClass($classes)
+        {
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\ButtonGroup::addClass($classes);
+        }
+         
+    }
  
 }
 
@@ -16239,6 +16589,10 @@ namespace  {
     class Button extends \Bootstrapper\Facades\Button {}
 
     class Icon extends \Bootstrapper\Facades\Icon {}
+
+    class Table extends \Bootstrapper\Facades\Table {}
+
+    class ButtonGroup extends \Bootstrapper\Facades\ButtonGroup {}
 
     class Form extends \Collective\Html\FormFacade {}
 

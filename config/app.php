@@ -235,6 +235,8 @@ return [
         'Navigation' => Bootstrapper\Facades\Navigation::class,
         'Button' => Bootstrapper\Facades\Button::class,
         'Icon' => Bootstrapper\Facades\Icon::class,
+        'Table' => Bootstrapper\Facades\Table::class,
+        'ButtonGroup' => Bootstrapper\Facades\ButtonGroup::class,
 
 
     ],

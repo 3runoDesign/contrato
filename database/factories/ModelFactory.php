@@ -26,16 +26,27 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 $factory->define(Customer::class, function (Faker $faker) {
+    $str_gender = $faker->randomElements(['male', 'female']);
+    $gender = ['female' => 0, 'male' => 1];
+
     return [
-        'name' => $faker->name,
+        'name' => $faker->name($str_gender[0]),
+        'cpf' => $faker->cpf(false),
+        'rg' => $faker->rg(false) . ' SSP/' . $faker->randomElement([ 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO' ]),
+        'gender' => $gender[array_shift($str_gender)],
+        'email' => $faker->email,
+        'phone' => $faker->phone,
+
+        'cep' => $faker->postcode,
         'address' => $faker->streetName,
         'building_number' => $faker->buildingNumber,
-        'district' => $faker->secondaryAddress,
-        'locality' => $faker->city,
+        'complement' => 'Complemento de endereço',
+        'district' => $faker->randomElement(['Bairro 1', 'Bairro 2', 'Bairro 3', 'Bairro 4', 'Bairro 5']),
+        'city' => $faker->city,
         'uf' => $faker->stateAbbr,
-        'cpf' => $faker->cpf(false),
-        'rg' => $faker->rg(false),
-        'phone' => $faker->phoneNumber,
+
+        'birthday' => $faker->dateTimeBetween('+0 days', '+2 years'),
+        'description' => 'Uma breve descrição do cliente'
     ];
 });
 

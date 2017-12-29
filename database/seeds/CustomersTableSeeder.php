@@ -13,9 +13,8 @@ class CustomersTableSeeder extends Seeder
      */
     public function run()
     {
-        $agreements = Agreement::all();
 
-        factory(Customer::class, 100)
+        factory(Customer::class, 50)
             ->create();
     }
 }

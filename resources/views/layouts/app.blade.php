@@ -28,7 +28,7 @@
                                 'link' => route('logout'),
                                 'title' => 'Logout',
                                 'linkAttributes' => [
-                                    'onclick' => "event.preventDefault();document.getElementById(\"form-logout\").submit();"
+                                    'onclick' => "event.preventDefault();document.getElementById(\"form-logout\").submit();",
                                 ]
                             ]
                         ]

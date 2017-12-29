@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-12-26.
+    * Generated on 2017-12-29.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -73,6 +73,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -162,9 +165,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
@@ -232,6 +232,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -321,9 +324,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
@@ -391,6 +391,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -480,9 +483,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\App::make(0), map([
@@ -550,6 +550,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -639,9 +642,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\App::makeWith(0), map([
@@ -709,6 +709,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -798,9 +801,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\app(0), map([
@@ -868,6 +868,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -957,9 +960,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
     override(\resolve(0), map([
@@ -1027,6 +1027,9 @@ namespace PHPSTORM_META {
         'bootstrapper::table' => \Bootstrapper\Table::class,
         'bootstrapper::thumbnail' => \Bootstrapper\Thumbnail::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -1116,9 +1119,6 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
-        'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
     ]));
 
