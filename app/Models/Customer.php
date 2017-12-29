@@ -22,7 +22,7 @@ class Customer extends Model implements TableInterface
         'district',
         'city',
         'uf',
-
+        'birthday',
         'description',
     ];
 

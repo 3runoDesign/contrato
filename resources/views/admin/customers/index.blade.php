@@ -16,7 +16,7 @@
                             $linkShow = route('admin.customer.show', ['customer ' => $model->id]);
 
                             return
-                            ButtonGroup::withContents([
+                            ButtonGroup::links([
                                 Button::primary(Icon::pencil() . ' Editar')->asLinkTo($linkEdit),
                                 Button::primary(Icon::eyeOpen() . ' Ver')->asLinkTo($linkShow)
                             ]);

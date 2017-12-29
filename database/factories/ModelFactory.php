@@ -32,7 +32,7 @@ $factory->define(Customer::class, function (Faker $faker) {
     return [
         'name' => $faker->name($str_gender[0]),
         'cpf' => $faker->cpf(false),
-        'rg' => $faker->rg(false) . ' SSP/' . $faker->randomElement([ 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO' ]),
+        'rg' => $faker->rg(false) . ' SSP/' . collect(\CONTR\Models\State::$states)->random(),
         'gender' => $gender[array_shift($str_gender)],
         'email' => $faker->email,
         'phone' => $faker->phone,
@@ -45,7 +45,7 @@ $factory->define(Customer::class, function (Faker $faker) {
         'city' => $faker->city,
         'uf' => $faker->stateAbbr,
 
-        'birthday' => $faker->dateTimeBetween('+0 days', '+2 years'),
+        'birthday' => $faker->date(),
         'description' => 'Uma breve descrição do cliente'
     ];
 });

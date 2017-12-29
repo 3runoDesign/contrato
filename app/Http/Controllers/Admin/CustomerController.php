@@ -2,6 +2,7 @@
 
 namespace CONTR\Http\Controllers\Admin;
 
+use CONTR\Forms\CustomerForm;
 use CONTR\Models\Customer;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
@@ -28,7 +29,12 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        $form = \FormBuilder::create(CustomerForm::class, [
+            'url' => route('admin.customer.store'),
+            'method' => 'POST'
+        ]);
+
+        return view('admin.customers.create', compact('form'));
     }
 
     /**
@@ -61,7 +67,13 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        $form = \FormBuilder::create(CustomerForm::class, [
+            'url' => route('admin.customer.update',['customer' => $customer->id]),
+            'method' => 'PUT',
+            'model' => $customer
+        ]);
+
+        return view('admin.customers.edit', compact('form'));
     }
 
     /**
