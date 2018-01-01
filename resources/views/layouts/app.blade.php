@@ -19,6 +19,35 @@
             $navbar = Navbar::withBrand(config('app.name'), '#')->inverse();
 
             if (Auth::check()) {
+                $arrayLinks = [ // ul
+                    [ // li
+                        'Clientes',
+                        [ // ul
+                            [ // li
+                                'link' => route('admin.customer.index'),
+                                'title' => 'Lista de clientes'
+                            ],
+                            [ // li
+                                'link' => route('admin.customer.create'),
+                                'title' => 'Novo cliente'
+                            ]
+                        ]
+                    ],
+                    [ // li
+                        'Contrato',
+                        [ // ul
+                            [ // li
+                                'link' => route('admin.agreement.index'),
+                                'title' => 'Lista de contratos'
+                            ],
+                            [ // li
+                                'link' => route('admin.agreement.create'),
+                                'title' => 'Novo contrato'
+                            ]
+                        ]
+                    ]
+                ];
+
                 $arrayLinksRight =
                 [ // ul
                     [ // li
@@ -35,6 +64,7 @@
                     ]
                 ];
 
+                $navbar->withContent(Navigation::links($arrayLinks));
                 $navbar->withContent(Navigation::links($arrayLinksRight)->right());
 
                 $formLogout = FormBuilder::plain([
@@ -58,6 +88,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>

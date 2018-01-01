@@ -1,0 +1,20 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+
+        <div class="row">
+            <h3>Novo contrato</h3>
+        </div>
+
+        <div class="row">
+            {!!
+               form($form->add('insert', 'submit', [
+                'attr' => ['class' => 'btn btn-primary btn-block'],
+                'label' => Icon::create('floppy-disk'),' Inserir'
+               ]))
+            !!}
+        </div>
+    </div>
+@endsection
+

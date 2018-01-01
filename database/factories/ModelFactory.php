@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use CONTR\Models\Agreement;
 use CONTR\Models\Customer;
 use CONTR\Models\User;
@@ -52,12 +53,44 @@ $factory->define(Customer::class, function (Faker $faker) {
 
 $factory->define(Agreement::class, function (Faker $faker) {
     $customer_ids = Customer::all()->random()->id;
+    $price = array_random([1500.00, 600]);
+    $portion = $price / 3;
+
+    $dateEventPre = $faker->randomElement([
+        Carbon::today()->addDay(5)->addMonth(0)->format('d/m/Y'),
+        Carbon::today()->addDay(8)->addMonth(0)->format('d/m/Y'),
+        Carbon::today()->addDay(2)->addMonth(0)->format('d/m/Y'),
+        Carbon::today()->addDay(3)->addMonth(0)->format('d/m/Y'),
+        Carbon::today()->addDay(9)->addMonth(0)->format('d/m/Y'),
+        Carbon::today()->addDay(15)->addMonth(1)->format('d/m/Y'),
+        Carbon::today()->addDay(20)->addMonth(2)->format('d/m/Y'),
+    ]);
+    $dateEvent = $faker->randomElement([
+        Carbon::today()->addDay(10)->addMonth(1)->format('d/m/Y'),
+        Carbon::today()->addDay(2)->addMonth(3)->format('d/m/Y'),
+        Carbon::today()->addDay(5)->addMonth(4)->format('d/m/Y'),
+    ]);
 
     return [
-        'title' => $faker->sentence,
-        'enrolment' => str_random(40),
-        'date_agreement' => $faker->dateTime('now', null),
-        'date_event' => $faker->dateTime('now', null),
+        'title' => $faker->randomElement(['Pré-Casamento', 'Casamento', 'Ensaio Restrato']),
+        'enrolment' => 100000 + $customer_ids,
+        'date_agreement' => Carbon::today(),
+        'price' => $price,
+        'event_schedule' => $faker->randomElement([
+            "{$dateEventPre} - Pré-Casamento; {$dateEvent} - Casamento (Araguaína-TO)",
+            "{$dateEventPre} - Pré-Casamento; {$dateEvent} - Casamento (Palestina-PA)",
+            "{$dateEventPre} - Sessão Retrato"
+        ]),
+        'total_hours' => array_random([4, 10]),
+        'description_services' => $faker->randomElement([
+            '6 horas de cobertura com um fotógrafo; 2 horas de making of da noiva; Sessão de pré-casamento; Pendrive com fotos em alta e editadas; Galeria online por 6 meses',
+            '4 horas de sessão retrato',
+            '4 hora de pré-casamento'
+        ]),
+        'payment_terms' => $faker->randomElement([
+            'Fica acordado o pagamento avista até a data 10/01/2018',
+            "Fica acordado o pagamento em 3x de R$ {$portion} para todo dia 15 do mês. Iniciando no dia 10/01/2018"
+        ]),
         'customer_id' => $customer_ids
     ];
 });

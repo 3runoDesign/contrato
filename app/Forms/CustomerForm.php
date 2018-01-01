@@ -12,7 +12,7 @@ class CustomerForm extends Form
 //        $id = $this->getData('id');
 
         $formatDate = function( $value ){
-            return ($value && $value instanceof Carbon) ? $value->format('Y-m-d') : $value;grapheme_strlen()
+            return ($value && $value instanceof Carbon) ? $value->format('Y-m-d') : $value;
         };
 
         $this

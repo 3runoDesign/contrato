@@ -25,6 +25,8 @@ Route::prefix('admin')->group(function () {
     ], function () {
 
         Route::resource('customer', 'CustomerController');
+        Route::resource('agreement', 'AgreementController');
+        Route::name('agreement.pdf')->get('agreement/{agreement}/pdf', 'AgreementController@pdf');
 
     });
 });

@@ -4,18 +4,18 @@
     <div class="container">
 
         <div class="row">
-            <h3>Listagem de clientes</h3>
+            <h3>Listagem de contratos</h3>
 
-            {!! Button::primary('Novo cliente')->asLinkTo(route('admin.customer.create')) !!}
+            {!! Button::primary('Novo contrato')->asLinkTo(route('admin.agreement.create')) !!}
         </div>
 
         <div class="row">
             {!!
-                Table::withContents($customers->items())
+                Table::withContents($agreements->items())
                        ->striped()
                        ->callback('Ações', function($field, $model){
-                            $linkEdit = route('admin.customer.edit', ['customer ' => $model->id]);
-                            $linkShow = route('admin.customer.show', ['customer ' => $model->id]);
+                            $linkEdit = route('admin.agreement.edit', ['agreement ' => $model->id]);
+                            $linkShow = route('admin.agreement.show', ['agreement ' => $model->id]);
 
                             return
                             ButtonGroup::links([
@@ -25,7 +25,7 @@
                        })
             !!}
 
-            {{ $customers->links() }}
+            {{ $agreements->links() }}
         </div>
     </div>
 @endsection

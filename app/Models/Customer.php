@@ -34,6 +34,10 @@ class Customer extends Model implements TableInterface
         return $this->hasMany(Agreement::class);
     }
 
+    public function get_gender_formatted() {
+        return (($this->gender == 1) ? "Homem" : "Mulher");
+    }
+
     public function getTableHeaders()
     {
         return [

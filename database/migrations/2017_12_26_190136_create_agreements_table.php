@@ -16,9 +16,14 @@ class CreateAgreementsTable extends Migration
         Schema::create('agreements', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 255);
-            $table->string('enrolment')->unique();
+            $table->string('enrolment');
             $table->date('date_agreement');
-            $table->date('date_event');
+
+            $table->integer('total_hours');
+            $table->float('price');
+            $table->longText('description_services');
+            $table->longText('event_schedule');
+            $table->longText('payment_terms');
 
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')
