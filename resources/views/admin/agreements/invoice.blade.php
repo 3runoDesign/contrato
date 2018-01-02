@@ -11,6 +11,7 @@
     <div class="container">
         <div class="row">
             <article id="introducao" class="clause">
+
                 <p>Pelo presente Instrumento Particular de Prestação de Serviços Fotográficos, de um lado:</p>
 
                 <ul class="ul-agreement">
@@ -308,7 +309,8 @@
                 </article>
 
                 <div class="signature clearfix">
-                    <p>Araguaína-TO, <time datetime="{{ $agreement->date_agreement }}">{!! $agreement->date_agreement->formatLocalized('%d de <span>%B</span> de %Y') !!}</time>.</p>
+                    <p>
+                        Araguaína-TO, <time datetime="{{ $agreement->date_agreement }}">{!! $agreement->date_agreement->formatLocalized('%d de <span>' . trans('dates.' . strtolower($agreement->date_agreement->formatLocalized('%B'))) . '</span> de %Y') !!}</time>.</p>
 
                     <div class="person-info">
                         <hr>

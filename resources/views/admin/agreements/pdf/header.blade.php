@@ -26,7 +26,7 @@
                 </h1>
 
                 <p style="text-align: right">
-                    {!! $agreement->date_agreement->formatLocalized('%d de <span>%B</span> de %Y') !!}
+                     {!! $agreement->date_agreement->formatLocalized('%d de <span>' . trans('dates.' . strtolower($agreement->date_agreement->formatLocalized('%B'))) . '</span> de %Y') !!}
                 </p>
             </div>
         </div>

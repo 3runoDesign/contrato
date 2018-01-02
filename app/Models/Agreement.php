@@ -28,43 +28,43 @@ class Agreement extends Model implements TableInterface
         return $this->belongsTo(Customer::class);
     }
 
-    public function removeFormatting( $strNumero )
+    public function removeFormatting( $strNumber )
     {
 
-        $strNumero = trim( str_replace( "R$", null, $strNumero ) );
+        $strNumber = trim( str_replace( "R$", null, $strNumber ) );
 
-        $vetVirgula = explode( ",", $strNumero );
-        if ( count( $vetVirgula ) == 1 )
+        $vetComma = explode( ",", $strNumber );
+        if ( count( $vetComma ) == 1 )
         {
-            $acentos = array(".");
-            $resultado = str_replace( $acentos, "", $strNumero );
-            return $resultado;
+            $accents = array(".");
+            $result = str_replace( $accents, "", $strNumber );
+            return $result;
         }
-        else if ( count( $vetVirgula ) != 2 )
+        else if ( count( $vetComma ) != 2 )
         {
-            return $strNumero;
+            return $strNumber;
         }
 
-        $strNumero = $vetVirgula[0];
-        $strDecimal = mb_substr( $vetVirgula[1], 0, 2 );
+        $strNumber = $vetComma[0];
+        $strDecimal = mb_substr( $vetComma[1], 0, 2 );
 
-        $acentos = array(".");
-        $resultado = str_replace( $acentos, "", $strNumero );
-        $resultado = $resultado . "." . $strDecimal;
+        $accents = array(".");
+        $result = str_replace( $accents, "", $strNumber );
+        $result = $result . "." . $strDecimal;
 
-        return $resultado;
+        return $result;
 
     }
 
-    public function writtenAmount( $bolExibirMoeda = true, $bolPalavraFeminina = false )
+    public function writtenAmount( $bolShowCoin = true, $bolWordFemale = false )
     {
 
-        $valor = $this->removeFormatting( $this->price );
+        $price = $this->removeFormatting( $this->price );
 
         $singular = null;
         $plural = null;
 
-        if ( $bolExibirMoeda )
+        if ( $bolShowCoin )
         {
             $singular = array("centavo", "real", "mil", "milhão", "bilhão", "trilhão", "quatrilhão");
             $plural = array("centavos", "reais", "mil", "milhões", "bilhões", "trilhões","quatrilhões");
@@ -81,10 +81,10 @@ class Agreement extends Model implements TableInterface
         $u = array("", "um", "dois", "três", "quatro", "cinco", "seis","sete", "oito", "nove");
 
 
-        if ( $bolPalavraFeminina )
+        if ( $bolWordFemale )
         {
 
-            if ($valor == 1)
+            if ($price == 1)
             {
                 $u = array("", "uma", "duas", "três", "quatro", "cinco", "seis","sete", "oito", "nove");
             }
@@ -102,40 +102,39 @@ class Agreement extends Model implements TableInterface
 
         $z = 0;
 
-        $valor = number_format( $valor, 2, ".", "." );
-        $inteiro = explode( ".", $valor );
+        $price = number_format( $price, 2, ".", "." );
+        $intire = explode( ".", $price );
 
-        for ( $i = 0; $i < count( $inteiro ); $i++ )
+        for ( $i = 0; $i < count( $intire ); $i++ )
         {
-            for ( $ii = mb_strlen( $inteiro[$i] ); $ii < 3; $ii++ )
+            for ( $ii = mb_strlen( $intire[$i] ); $ii < 3; $ii++ )
             {
-                $inteiro[$i] = "0" . $inteiro[$i];
+                $intire[$i] = "0" . $intire[$i];
             }
         }
 
-        // $fim identifica onde que deve se dar junção de centenas por "e" ou por "," ;)
         $rt = null;
-        $fim = count( $inteiro ) - ($inteiro[count( $inteiro ) - 1] > 0 ? 1 : 2);
-        for ( $i = 0; $i < count( $inteiro ); $i++ )
+        $fim = count( $intire ) - ($intire[count( $intire ) - 1] > 0 ? 1 : 2);
+        for ( $i = 0; $i < count( $intire ); $i++ )
         {
-            $valor = $inteiro[$i];
-            $rc = (($valor > 100) && ($valor < 200)) ? "cento" : $c[$valor[0]];
-            $rd = ($valor[1] < 2) ? "" : $d[$valor[1]];
-            $ru = ($valor > 0) ? (($valor[1] == 1) ? $d10[$valor[2]] : $u[$valor[2]]) : "";
+            $price = $intire[$i];
+            $rc = (($price > 100) && ($price < 200)) ? "cento" : $c[$price[0]];
+            $rd = ($price[1] < 2) ? "" : $d[$price[1]];
+            $ru = ($price > 0) ? (($price[1] == 1) ? $d10[$price[2]] : $u[$price[2]]) : "";
 
             $r = $rc . (($rc && ($rd || $ru)) ? " e " : "") . $rd . (($rd && $ru) ? " e " : "") . $ru;
-            $t = count( $inteiro ) - 1 - $i;
-            $r .= $r ? " " . ($valor > 1 ? $plural[$t] : $singular[$t]) : "";
-            if ( $valor == "000")
+            $t = count( $intire ) - 1 - $i;
+            $r .= $r ? " " . ($price > 1 ? $plural[$t] : $singular[$t]) : "";
+            if ( $price == "000")
                 $z++;
             elseif ( $z > 0 )
                 $z--;
 
-            if ( ($t == 1) && ($z > 0) && ($inteiro[0] > 0) )
+            if ( ($t == 1) && ($z > 0) && ($intire[0] > 0) )
                 $r .= ( ($z > 1) ? " de " : "") . $plural[$t];
 
             if ( $r )
-                $rt = $rt . ((($i > 0) && ($i <= $fim) && ($inteiro[0] > 0) && ($z < 1)) ? ( ($i < $fim) ? ", " : " e ") : " ") . $r;
+                $rt = $rt . ((($i > 0) && ($i <= $fim) && ($intire[0] > 0) && ($z < 1)) ? ( ($i < $fim) ? ", " : " e ") : " ") . $r;
         }
 
         $rt = mb_substr( $rt, 1 );
