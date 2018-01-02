@@ -45,7 +45,23 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = \FormBuilder::create(CustomerForm::class);
+
+        if (!$form->isValid()) {
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+        $result = Customer::createFully($data);
+        $request->session()->flash('message',"Usuário {$result['customer']->name} criado com sucesso.)");
+//        $request->session()->flash('customer_created',[
+//            'id' => $result['customer']->id,
+//            'password' => $result['password']
+//        ]);
+        return redirect()->route('admin.agreement.index');
     }
 
     /**

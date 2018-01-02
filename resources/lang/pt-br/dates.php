@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'date' => 'data',
+    'dates' => 'datas',
     'january' => 'janeiro',
     'february' => 'fevereiro',
     'march' => 'março',

@@ -47,7 +47,21 @@ class AgreementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = \FormBuilder::create(AgreementForm::class);
+
+        if (!$form->isValid()) {
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+        $data['enrolment'] = '00000';
+        $agreementCurrent = Agreement::create($data);
+        $agreementCurrent->update(['enrolment' => 100000 + $agreementCurrent->id]);
+        $request->session()->flash('message',"Contrato criado com sucesso.");
+        return redirect()->route('admin.agreement.index');
     }
 
     /**
@@ -58,7 +72,6 @@ class AgreementController extends Controller
      */
     public function show(Agreement $agreement)
     {
-//        return \Carbon\Carbon::now()->formatLocalized('%d de %B de %Y');
         return view('admin.agreements.invoice', compact('agreement'));
     }
     /**
@@ -69,7 +82,6 @@ class AgreementController extends Controller
      */
     public function pdf(Agreement $agreement)
     {
-        // 'admin.agreements.invoice'
         $pdf = PDF::loadView('admin.agreements.invoice', compact('agreement'));
 
         return $pdf
@@ -109,9 +121,23 @@ class AgreementController extends Controller
      * @param  \CONTR\Models\Agreement  $agreement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agreement $agreement)
+    public function update(Agreement $agreement)
     {
-        //
+        $form = \FormBuilder::create(AgreementForm::class, [
+            'data' => ['id' => $agreement->id]
+        ]);
+
+        if (!$form->isValid()) {
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+        $agreement->update($data);
+        session()->flash('message',"Contrato criado com sucesso.");
+        return redirect()->route('admin.agreement.edit', ['agreement ' => $agreement->id]);
     }
 
     /**

@@ -42,7 +42,12 @@
 
                 <div class="cont-indentation">
                     <h5>Art.1º - Eventos Contratados:</h5>
-                    <p>Este instrumento refere-se à contratação {{ str_plural('do', count($services)) }} {{ str_plural('seguinte', count($services)) }} {{ str_plural('serviço', count($services)) }}:</p>
+                    <p>
+                        Este instrumento refere-se à contratação
+                        {{ str_plural('do', count($services)) }}
+                        {{ str_plural('seguinte', count($services)) }}
+                        {{ str_plural('serviço', count($services)) }}:
+                    </p>
 
                     <ul>
                         @foreach($services as $item)
@@ -51,7 +56,11 @@
                     </ul>
 
                     <h5>Art.2º - Agenda:</h5>
-                    <p>Este instrumento refere-se à contratação {{ str_plural('na', count($schedules)) }} {{ str_plural('seguinte', count($schedules)) }} {{ str_plural('data', count($schedules)) }}:</p>
+                    <p>
+                        Este instrumento refere-se à contratação
+                        {{ str_plural('na', count($schedules)) }} {{ str_plural('seguinte', count($schedules)) }}
+                        {{ trans('dates.' . str_plural('date', count($schedules))) }}:
+                    </p>
 
                     <ul>
                         @foreach($schedules as $schedule)
@@ -77,13 +86,15 @@
                     </ul>
 
                     <h5>Art.4º - Valores</h5>
-                    <p>Fica justo e acertado o valor total de <strong class="featured">R$ {{ $agreement->price }}</strong> (<i>{{ $agreement->writtenAmount() }}</i>), para a execução dos  que o pagamento será feito como descrito abaixo:</p>
+                    <p>
+                        Fica justo e acertado o valor total de <strong class="featured">R$ {{ $agreement->price }}</strong>
+                        (<i>{{ $agreement->writtenAmount() }}</i>), para a execução dos serviços.
+                        O pagamento será feito como descrito abaixo:
+                    </p>
 
                         <ul>
                             <li>{{ $agreement->payment_terms }}</li>
                         </ul>
-
-
                 </div>
 
             </article>
@@ -94,7 +105,7 @@
                 <p>
                     O CONTRATADO se responsabilizará, exclusivamente, pela qualidade da prestação dos serviços
                     contratados nas condições em que forem pactuados, cumprindo ao mesmo o comparecimento no local,
-                    data e hora combinados, com sua equipe, e munidos dos equipamentos necessários à realização
+                    data e hora combinados, e munidos dos equipamentos necessários à realização
                     dos serviços a serem executados.
                 </p>
 
@@ -153,8 +164,14 @@
                     do CONTRATANTE os custos como: deslocamento de ida e volta, hospedagem e translado. Para valores como de passagens,
                     o mesmo deverá ser repassado ao CONTRATADO com antecedência mínima de 10 (dez) dias úteis antes da data do(s) evento(s).
                 </p>
+                <p>
+                    § 10º Caso o ensaio seja realizado em locação externa escolhida pelo CONTRATANTE, o mesmo deverá arcar com
+                    os custos de transporte, valores de locação e fornecer os contatos do local ao CONTRATADO.
 
-                {{-- TODO: Locais para ensaios --}}
+                    <p class="cont-indentation">
+                        § único: Itens como roupas, acessórios, maquiagens e afins, não serão inclusos nesse contrato.
+                    </p>
+                </p>
 
             </article>
 
@@ -178,7 +195,7 @@
 
                 <p>
                     § 1º Os valores contratados e descritos no Artigo supracitado ao presente instrumento terão validade
-                    por até 60 (sessenta) dias após a realização do evento, findo o qual poderá ser reajustado conforme
+                    por até <strong>60 (sessenta)</strong> dias após a realização do evento, findo o qual poderá ser reajustado conforme
                     valores de mercado praticados à época.
                 </p>
 
@@ -190,7 +207,11 @@
 
                 <ul class="agreement-alpha">
                     <li>
-                        Multa de 25% (vinte e cinco por cento), sobre o valor total referente a este instrumento,
+                        De acordo com o Código de Defesa do Consumidor, os contratos assinados podem ser cancelados em
+                        até 7 dias após a sua assinatura, sem implicar em pagamento de multas.
+                    </li>
+                    <li>
+                        Multa de 30% (vinte e cinco por cento), sobre o valor total referente a este instrumento,
                         devidamente atualizado, se houver comunicado expresso e por escrito ao CONTRATADO,
                         com antecedência de 120(cento e vinte) dias da data do evento.
                     </li>
@@ -232,8 +253,8 @@
                 <h4 class="title-clause">Cláusula Quarta – Prazos de entrega</h4>
 
                 <p>
-                    § 1° O CONTRATADO se obriga a entregar o CD/pen-drive ou por meio de acesso digital as fotos para escolha,
-                    no máximo, 30(trinta) dias úteis após a data do evento.
+                    § 1° O CONTRATADO se obriga a entregar o CD/pen-drive ou por meio de acesso digital as fotos já
+                    curadas no 30(trinta) dias úteis após a data do evento.
                 </p>
 
                 <p>
