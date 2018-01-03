@@ -12,21 +12,14 @@ class CustomerForm extends Form
 //        $id = $this->getData('id');
 
         $formatDate = function( $value ){
-            return ($value && $value instanceof Carbon) ? $value->format('Y-m-d') : $value;
+            return ($value && $value instanceof Carbon) ? $value->format('Y-m-d') : Carbon::now()->format('Y-m-d');
         };
 
         $this
             ->add('name', 'text', [
                 'label' => 'Nome',
-                'rules' => 'required|max:255'
-            ])
-            ->add('cpf', 'text', [
-                'label' => 'CPF',
-                'rules' => 'required|cpf'
-            ])
-            ->add('rg', 'text', [
-                'label' => 'RG',
-                'rules' => 'required|max:255'
+                'rules' => 'required|max:255',
+                'wrapper' => ['class' => 'form-group col-md-9']
             ])
             ->add('gender', 'choice', [
                 'choices' => [
@@ -34,47 +27,72 @@ class CustomerForm extends Form
                     0 => "Mulher",
                 ],
                 'label' => 'Gênero',
+                'wrapper' => ['class' => 'form-group col-md-3']
             ])
-            ->add('email', 'email', [
-                'label' => 'Email',
-                'rules' => 'required|email'
+            ->add('cpf', 'text', [
+                'label' => 'CPF',
+                'rules' => 'required|cpf',
+                'wrapper' => ['class' => 'form-group col-md-6']
             ])
-            ->add('phone', 'text', [
-                'label' => 'Telefone (Whatsapp)',
+            ->add('rg', 'text', [
+                'label' => 'RG',
+                'rules' => 'required|max:255',
+                'wrapper' => ['class' => 'form-group col-md-6']
             ])
-
-            ->add('cep', 'text', [
-                'label' => 'CEP',
-                'rules' => 'required'
-            ])
-            ->add('address', 'text', [
-                'label' => 'Lougradouro',
-                'rules' => ''
-            ])
-            ->add('building_number', 'text', [
-                'label' => 'Número',
-                'rules' => ''
-            ])
-            ->add('complement', 'text', [
-                'label' => 'Complemento',
-            ])
-            ->add('district', 'text', [
-                'label' => 'Bairro',
-            ])
-            ->add('city', 'text', [
-                'label' => 'Cidade',
-            ])
-            ->add('uf', 'text', [
-                'label' => 'Estado',
-            ])
-
             ->add('birthday', 'date', [
                 'label' => 'Aniversário',
                 'rules' => 'required|date',
-                'value' => $formatDate
+                'value' => $formatDate,
+                'wrapper' => ['class' => 'form-group col-md-4']
             ])
+            ->add('email', 'email', [
+                'label' => 'Email',
+                'rules' => 'required|email',
+                'wrapper' => ['class' => 'form-group col-md-4']
+            ])
+            ->add('phone', 'text', [
+                'label' => 'Telefone (Whatsapp)',
+                'wrapper' => ['class' => 'form-group col-md-4']
+            ])
+
+            // Endereço
+            ->add('cep', 'text', [
+                'label' => 'CEP',
+                'rules' => 'required',
+                'wrapper' => ['class' => 'form-group col-md-4']
+            ])
+            ->add('address', 'text', [
+                'label' => 'Lougradouro',
+                'rules' => '',
+                'wrapper' => ['class' => 'form-group col-md-8']
+            ])
+            ->add('building_number', 'text', [
+                'label' => 'Número',
+                'rules' => '',
+                'wrapper' => ['class' => 'form-group col-md-1']
+            ])
+            ->add('district', 'text', [
+                'label' => 'Bairro',
+                'wrapper' => ['class' => 'form-group col-md-2']
+            ])
+            ->add('complement', 'text', [
+                'label' => 'Complemento',
+                'wrapper' => ['class' => 'form-group col-md-5']
+            ])
+            ->add('city', 'text', [
+                'label' => 'Cidade',
+                'wrapper' => ['class' => 'form-group col-md-3']
+            ])
+            ->add('uf', 'text', [
+                'label' => 'Estado',
+                'wrapper' => ['class' => 'form-group col-md-1']
+            ])
+
             ->add('description', 'textarea', [
                 'label' => 'Descrição',
+                'wrapper' => ['class' => 'form-group col-md-12']
             ]);
+
+
     }
 }

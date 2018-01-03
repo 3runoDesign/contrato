@@ -47,21 +47,28 @@ class AgreementController extends Controller
      */
     public function store(Request $request)
     {
-        $form = \FormBuilder::create(AgreementForm::class);
+        $requestData = $request->all();
 
-        if (!$form->isValid()) {
-            return redirect()
-                ->back()
-                ->withErrors($form->getErrors())
-                ->withInput();
-        }
+        $requestData['description_services'] = implode(";", $requestData['description_services']);
+        $requestData['event_schedule'] = implode(";", $requestData['event_schedule']);
+        $requestData['payment_terms'] = implode(";", $requestData['payment_terms']);
 
-        $data = $form->getFieldValues();
-        $data['enrolment'] = '00000';
-        $agreementCurrent = Agreement::create($data);
-        $agreementCurrent->update(['enrolment' => 100000 + $agreementCurrent->id]);
-        $request->session()->flash('message',"Contrato criado com sucesso.");
-        return redirect()->route('admin.agreement.index');
+        return response()->json($requestData);
+//        $form = \FormBuilder::create(AgreementForm::class);
+//
+//        if (!$form->isValid()) {
+//            return redirect()
+//                ->back()
+//                ->withErrors($form->getErrors())
+//                ->withInput();
+//        }
+//
+//        $data = $form->getFieldValues();
+//        $data['enrolment'] = '00000';
+//        $agreementCurrent = Agreement::create($data);
+//        $agreementCurrent->update(['enrolment' => 100000 + $agreementCurrent->id]);
+//        $request->session()->flash('message',"Contrato criado com sucesso.");
+//        return redirect()->route('admin.agreement.index');
     }
 
     /**

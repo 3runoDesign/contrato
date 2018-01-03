@@ -15,6 +15,7 @@
         "kris/laravel-form-builder": "^1.14",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.5",
         "patricktalmadge/bootstrapper": "^5.10"
     },
     "require-dev": {

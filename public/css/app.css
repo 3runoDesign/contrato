@@ -8350,3 +8350,11 @@ button.close {
   }
 }
 
+#dynamic_field .input-group {
+  margin-top: 8px;
+}
+
+#dynamic_field {
+  padding-bottom: 20px;
+}
+

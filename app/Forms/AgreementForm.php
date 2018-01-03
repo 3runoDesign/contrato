@@ -18,43 +18,53 @@ class AgreementForm extends Form
         };
 
         $this
-            ->add('title', 'text', [
-                'label' => 'Título',
-                'rules' => 'required|max:255'
-            ])
-//            ->add('enrolment', 'text', [
-//                'label' => 'Código',
-//                'rules' => 'required|max:255'
-//            ])
-            ->add('total_hours', 'number', [
-                'label' => 'Total de horas',
-                'rules' => 'required'
-            ])
-            ->add('price', 'number', [
-                'label' => 'Valor',
-                'rules' => 'required'
-            ])
-            ->add('description_services', 'textarea', [
-                'label' => 'Descrição do(s) serviço(s)',
-                'rules' => 'required',
-                'value' => $descriptionServices
-            ])
-            ->add('event_schedule', 'textarea', [
-                'label' => 'Descrição da(s) datas',
-                'rules' => 'required'
-            ])
-            ->add('payment_terms', 'textarea', [
-                'label' => 'Condições de pagamento',
-                'rules' => 'required'
-            ])
             ->add('customer_id', 'number', [
-                'label' => 'Código do cliente',
-                'rules' => 'required'
+                'label' => 'Buscar Cliente',
+                'rules' => 'required',
+                'wrapper' => ['class' => 'form-group col-md-9']
             ])
             ->add('date_agreement', 'date', [
                 'label' => 'Data do contrato',
                 'rules' => 'required|date',
-                'value' => $formatDate
+                'value' => $formatDate,
+                'wrapper' => ['class' => 'form-group col-md-3']
+            ])
+            ->add('title', 'text', [
+                'label' => 'Título',
+                'rules' => 'required|max:255',
+                'wrapper' => ['class' => 'form-group col-md-6']
+            ])
+            ->add('total_hours', 'number', [
+                'label' => 'Total de horas',
+                'rules' => 'required',
+                'wrapper' => ['class' => 'form-group col-md-3']
+            ])
+            ->add('price', 'number', [
+                'label' => 'Valor',
+                'rules' => 'required',
+                'wrapper' => ['class' => 'form-group col-md-3']
+            ])
+            ->add('description_services[]', 'text', [
+                'label' => 'Descrição do(s) serviço(s)',
+                'rules' => 'required',
+//                'value' => $descriptionServices,
+                'wrapper' => ['class' => 'form-group col-md-12 after-add-more']
             ]);
+//            ->add('description_services', 'textarea', [
+//                'label' => 'Descrição do(s) serviço(s)',
+//                'rules' => 'required',
+//                'value' => $descriptionServices,
+//                'wrapper' => ['class' => 'form-group col-md-4']
+//            ])
+//            ->add('event_schedule', 'textarea', [
+//                'label' => 'Descrição da(s) datas',
+//                'rules' => 'required',
+//                'wrapper' => ['class' => 'form-group col-md-4']
+//            ])
+//            ->add('payment_terms', 'textarea', [
+//                'label' => 'Condições de pagamento',
+//                'rules' => 'required',
+//                'wrapper' => ['class' => 'form-group col-md-4']
+//            ]);
     }
 }

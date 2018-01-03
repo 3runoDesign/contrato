@@ -177,6 +177,7 @@ return [
         CONTR\Providers\EventServiceProvider::class,
         CONTR\Providers\RouteServiceProvider::class,
 
+        Collective\Html\HtmlServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
@@ -233,6 +234,8 @@ return [
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
         'Alert' =>  Bootstrapper\Facades\Alert::class,
         'Navbar' => Bootstrapper\Facades\Navbar::class,
