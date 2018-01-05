@@ -1,5 +1,6 @@
 <?php
 
+use CONTR\Models\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,8 +12,17 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\CONTR\Models\User::class)->create([
-            'email' => 'admin@user.com'
+
+        if (config('app.env') !== 'production') {
+            factory(User::class)->create([
+                'email' => 'admin@user.com'
+            ]);
+        }
+
+        factory(User::class)->create([
+            'name' => 'Bruno Fernando dos Santos Silva',
+            'email' => 'bruno2fernando@gmail.com',
+            'password' => Hash::make('153159951BRUgbl')
         ]);
     }
 }
