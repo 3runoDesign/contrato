@@ -56,12 +56,8 @@ class CustomerController extends Controller
 
         $data = $form->getFieldValues();
         $result = Customer::create($data);
-        $request->session()->flash('message',"Usuário criado com sucesso.)");
-////        $request->session()->flash('customer_created',[
-////            'id' => $result['customer']->id,
-////            'password' => $result['password']
-////        ]);
-        return redirect()->route('admin.customers.index');
+        $request->session()->flash('message', "Usuário criado com sucesso.");
+        return redirect()->route('admin.customer.index');
     }
 
     /**
