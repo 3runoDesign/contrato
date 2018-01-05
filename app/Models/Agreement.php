@@ -148,8 +148,7 @@ class Agreement extends Model implements TableInterface
         return [
             'Título',
             'Código',
-            'Data do contrato',
-            'Data do evento'
+            'Data do contrato'
         ];
     }
 
@@ -162,8 +161,6 @@ class Agreement extends Model implements TableInterface
                 return $this->enrolment;
             case 'Data do contrato':
                 return $this->date_agreement;
-            case 'Data do evento':
-                return $this->date_event;
         }
     }
 }

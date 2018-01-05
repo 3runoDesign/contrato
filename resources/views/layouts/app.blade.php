@@ -93,6 +93,14 @@
         @yield('content')
     </div>
 
+    <footer class="hidden-print">
+        <div class="container">
+            <p>
+                <strong>ContratoFoto</strong> - Copyright {{ \Carbon\Carbon::now()->year }} - {{ config('contrato.contratado.business') }}
+            </p>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js')}}"></script>
     @stack('scripts')

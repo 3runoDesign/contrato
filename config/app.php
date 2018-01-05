@@ -244,6 +244,7 @@ return [
         'Icon' => Bootstrapper\Facades\Icon::class,
         'Table' => Bootstrapper\Facades\Table::class,
         'ButtonGroup' => Bootstrapper\Facades\ButtonGroup::class,
+        'Label' => Bootstrapper\Facades\Label::class,
 
 
     ],

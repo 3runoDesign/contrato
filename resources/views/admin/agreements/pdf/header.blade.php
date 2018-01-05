@@ -25,8 +25,8 @@
                     <span>Número do contrato</span>
                 </h1>
 
-                <p style="text-align: right">
-                     {!! $agreement->date_agreement->formatLocalized('%d de <span>' . trans('dates.' . strtolower($agreement->date_agreement->formatLocalized('%B'))) . '</span> de %Y') !!}
+                <p style="text-align: right;">
+                     {!! $agreement->date_agreement->formatLocalized('%d de <span style="text-transform: capitalize;">%B</span> de %Y') !!}
                 </p>
             </div>
         </div>

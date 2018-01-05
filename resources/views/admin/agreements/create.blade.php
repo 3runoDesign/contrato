@@ -16,6 +16,10 @@
                 ])
             !!}
 
+                <div class="hide">
+                    {!! Form::text('enrolment', '00000',  ['class' => 'form-control']) !!}
+                </div>
+
                 <div class="form-group col-md-9">
                     {!! Form::label('customer_id', 'Buscar Cliente', ['class' => 'control-label']) !!}
                     {!! Form::number('customer_id', '',  ['class' => 'form-control']) !!}

@@ -53,7 +53,13 @@ class AgreementController extends Controller
         $requestData['event_schedule'] = implode(";", $requestData['event_schedule']);
         $requestData['payment_terms'] = implode(";", $requestData['payment_terms']);
 
-        return response()->json($requestData);
+        $agreementCurrent = Agreement::create($requestData);
+        $agreementCurrent->update(['enrolment' => 100000 + $agreementCurrent->id]);
+
+        session()->flash('message',"Contrato criado com sucesso.");
+
+//        return response()->json($requestData);
+        return redirect()->route('admin.agreement.edit', ['agreement ' => $agreementCurrent->id]);
 //        $form = \FormBuilder::create(AgreementForm::class);
 //
 //        if (!$form->isValid()) {
@@ -112,13 +118,7 @@ class AgreementController extends Controller
      */
     public function edit(Agreement $agreement)
     {
-        $form = \FormBuilder::create(AgreementForm::class, [
-            'url' => route('admin.agreement.update',['customer' => $agreement->id]),
-            'method' => 'PUT',
-            'model' => $agreement
-        ]);
-
-        return view('admin.agreements.edit', compact('form'));
+        return view('admin.agreements.edit', compact('agreement'));
     }
 
     /**
@@ -128,22 +128,17 @@ class AgreementController extends Controller
      * @param  \CONTR\Models\Agreement  $agreement
      * @return \Illuminate\Http\Response
      */
-    public function update(Agreement $agreement)
+    public function update(Request $request, Agreement $agreement)
     {
-        $form = \FormBuilder::create(AgreementForm::class, [
-            'data' => ['id' => $agreement->id]
-        ]);
+        $requestData = $request->all();
 
-        if (!$form->isValid()) {
-            return redirect()
-                ->back()
-                ->withErrors($form->getErrors())
-                ->withInput();
-        }
+        $requestData['description_services'] = implode(";", $requestData['description_services']);
+        $requestData['event_schedule'] = implode(";", $requestData['event_schedule']);
+        $requestData['payment_terms'] = implode(";", $requestData['payment_terms']);
 
-        $data = $form->getFieldValues();
-        $agreement->update($data);
+        $agreement->update($requestData);
         session()->flash('message',"Contrato criado com sucesso.");
+
         return redirect()->route('admin.agreement.edit', ['agreement ' => $agreement->id]);
     }
 

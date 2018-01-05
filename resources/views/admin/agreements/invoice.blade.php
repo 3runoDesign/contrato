@@ -1,7 +1,6 @@
 @extends('layouts.pdf')
 
 @section('content')
-
     @php
         $contratante = $agreement->customer;
         $services = explode(';', $agreement->description_services);
@@ -331,7 +330,7 @@
 
                 <div class="signature clearfix">
                     <p>
-                        Araguaína-TO, <time datetime="{{ $agreement->date_agreement }}">{!! $agreement->date_agreement->formatLocalized('%d de <span>' . trans('dates.' . strtolower($agreement->date_agreement->formatLocalized('%B'))) . '</span> de %Y') !!}</time>.</p>
+                        Araguaína-TO, <time datetime="{{ $agreement->date_agreement }}">{!! $agreement->date_agreement->formatLocalized('%d de <span>%B</span> de %Y') !!}</time>.</p>
 
                     <div class="person-info">
                         <hr>
