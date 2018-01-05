@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
         factory(User::class)->create([
             'name' => 'Bruno Fernando dos Santos Silva',
             'email' => 'bruno2fernando@gmail.com',
-            'password' => Hash::make('153159951BRUgbl')
+            'password' => Hash::make('153159951BRUgbl'),
+            'remember_token' => str_random(10)
         ]);
     }
 }
