@@ -179,7 +179,6 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         geekcom\ValidatorDocs\ValidatorProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
